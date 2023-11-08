@@ -17,7 +17,6 @@ public class Login {
 	private boolean isLogin;
 	
 	
-	
 	// Constructors
 	public Login() {}
 	public Login(String email, String password, String role) {

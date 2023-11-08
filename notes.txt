@@ -1,0 +1,154 @@
+address = [ ;// list
+
+  {
+     city: "chennai",
+     state: "tamilnadu"
+  },
+  {
+    city: "bengaluru",
+    state: "karnataka"
+  },
+  
+
+]
+
+{
+     city: "Hyderabad",
+     state: "Telangana"
+  }
+
+
+
+
+
+
+class Employee {
+
+   private int age;
+   private List<Address> address; //null
+
+   public void setAddress(List<Address> addrList) {
+      this.address=addrList;
+  }
+
+  public List<Address> getAddress() {
+      return this.address;
+  }
+
+  public void setAge(int age) {
+     this.age = age;
+  }
+
+  public int getAge() {
+     return this.age;
+  } 
+}
+
+class Address{
+    private String city;
+    private String state;
+
+    // Constructors
+
+    // Getters & Setters
+
+    // toString
+
+}
+
+class Test {
+
+    public static void main(String[] args) {
+	Employee emp1 = new Employee();
+
+        emp1.getAge();//0
+        emp1.setAge(21);
+        emp1.getAge(); //21
+
+
+
+        System.out.println(emp1.getAddress());//null
+
+        // create address list
+        List<Address> addrList =  new ArrayList<>(); //[]
+
+        emp1.setAddress(addrList);
+
+        System.out.println(emp1.getAddress()); // []
+
+        // Create addresses
+        Address a1 = new Address("Hyderabad", "Telangana");
+        
+
+        // add addresses to addrList
+        addrList.add(a1);
+        
+
+        // map addrList to emp
+        emp1.setAddress(addrList);
+
+        // print addresses
+        System.out.println(emp1.getAddress()); //a1
+
+
+        Address a2 = new Address("Chennai", "Tamilnadu");
+        addrList.add(a2);
+
+
+        //update emp address details
+        emp1.setAddress(addrList);// a1, a2
+
+
+
+
+       
+        
+
+
+
+
+
+    
+       
+        
+        
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+["aa", "bb"] -list.get(0) - aa
+
+employee.address.get(0) -{1st addr}
+employee.address.get(1) -{2nd addr}
+
+
+employee.address.get(0).getCity() ; // city name
+employee.address.get(0).getState();// state name
+
+
+
+employee.address.get(1).setCity("Pune");
+
+
+
+employee.address[0].getCity();
+employee.address[1].setCity("Hyderabad");
+
+employee
+  id
+   name,
+   age
+
+
+employee.name
+employee.getName()

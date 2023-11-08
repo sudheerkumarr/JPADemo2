@@ -1,11 +1,14 @@
 package com.example.entity;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,6 +30,14 @@ public class Employee {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="emp_login_fk")
 	private Login login;
+	
+	
+	// OneToMany - Unidirectional
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="emp_addr_fk")
+	private List<Address> address; 
+	
+	
 	
 
 	
@@ -65,10 +76,26 @@ public class Employee {
 	public void setContactNo(String contactNo) {
 		this.contactNo = contactNo;
 	}
+	
+	public Login getLogin() {
+		return login;
+	}
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+	public List<Address> getAddress() {
+		return address;
+	}
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
 	@Override
 	public String toString() {
-		return "Employee [empId=" + empId + ", name=" + name + ", contactNo=" + contactNo + ", login=" + login + "]";
+		return "Employee [empId=" + empId + ", name=" + name + ", contactNo=" + contactNo + ", login=" + login
+				+ ", address=" + address + "]";
 	}
+	
+	
 
 	
 	

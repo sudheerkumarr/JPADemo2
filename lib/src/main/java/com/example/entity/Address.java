@@ -1,22 +1,27 @@
 package com.example.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Address {
 
 	// Fields
+	@Id
+	@GeneratedValue
 	private int addrId;
-	private String dNo;
-	private String streetName;
+	
+	
 	private String city;
 	private String state;
 	
 	// Constructors , Getters/Setters, toString
 	public Address() {}
 
-	public Address(int addrId, String dNo, String streetName, String city, String state) {
+	public Address( String city, String state) {
 		super();
-		this.addrId = addrId;
-		this.dNo = dNo;
-		this.streetName = streetName;
+		
 		this.city = city;
 		this.state = state;
 	}
@@ -30,21 +35,6 @@ public class Address {
 		this.addrId = addrId;
 	}
 
-	public String getdNo() {
-		return dNo;
-	}
-
-	public void setdNo(String dNo) {
-		this.dNo = dNo;
-	}
-
-	public String getStreetName() {
-		return streetName;
-	}
-
-	public void setStreetName(String streetName) {
-		this.streetName = streetName;
-	}
 
 	public String getCity() {
 		return city;
@@ -64,10 +54,8 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [addrId=" + addrId + ", dNo=" + dNo + ", streetName=" + streetName + ", city=" + city
-				+ ", state=" + state + "]";
+		return "Address [addrId=" + addrId + ", city=" + city + ", state=" + state + "]";
 	}
-	
-	
+
 	
 }

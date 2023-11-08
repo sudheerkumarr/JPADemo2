@@ -2,6 +2,7 @@ package com.example.service;
 
 import java.util.List;
 
+import com.example.entity.Address;
 import com.example.entity.Employee;
 import com.example.repository.EmployeeRepository;
 import com.example.repository.EmployeeRepositoryImpl;
@@ -26,6 +27,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Employee deleteEmployee(int id) {
 		return empRepo.deleteEmployee(id);
+	}
+
+	@Override
+	public Employee updateAddress(int empId, List<Address> addList) {
+		return empRepo.updateAddress(empId, addList);
 	}
 
 }

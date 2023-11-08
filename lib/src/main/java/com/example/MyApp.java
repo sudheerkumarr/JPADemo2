@@ -1,8 +1,10 @@
 package com.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.example.entity.Address;
 import com.example.entity.Employee;
 import com.example.entity.Login;
 import com.example.service.EmployeeService;
@@ -23,6 +25,7 @@ public class MyApp {
 		System.out.println("3. List all employees");
 		System.out.println("4. Search employee");
 		System.out.println("5. Delete employee");
+		System.out.println("6. Update employee address");
 		
 		int opt = sc.nextInt();
 		
@@ -81,6 +84,34 @@ public class MyApp {
 			
 			// print success message
 			System.out.println("Deleted employee with id: "+deletedEmp.getEmpId()+" successfully!");
+			
+			break;
+		case 6:
+			// update emp address - city, state, eId, noOfAddress
+			System.out.println("Enter employee id: ");
+		    int id2 = sc.nextInt();
+		     
+		    System.out.println("Enter number of addresses to be added");
+		    int noOfAddr= sc.nextInt();
+		    List<Address> addrList =new ArrayList<>();
+		    for(int i=0;i<noOfAddr;i++) {
+		    	System.out.println("Enter city: ");
+		    	String city = sc.next();
+		    	System.out.println("Enter State: ");
+		    	String state = sc.next();
+		    	
+		    	// Create address object using city & state
+		    	Address a = new Address(city, state);
+		    	
+		    	// add addr obj to list
+		    	addrList.add(a);
+		    }
+		    
+		    // call Service method to map and store address info in db
+		    Employee updatedEmp = empService.updateAddress(id2, addrList);   
+		
+		    // print result
+		    System.out.println(updatedEmp);
 			
 			break;
 		default:
