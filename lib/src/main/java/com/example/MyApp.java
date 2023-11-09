@@ -7,8 +7,11 @@ import java.util.Scanner;
 import com.example.entity.Address;
 import com.example.entity.Employee;
 import com.example.entity.Login;
+import com.example.entity.Skill;
 import com.example.service.EmployeeService;
 import com.example.service.EmployeeServiceImpl;
+import com.example.service.SkillService;
+import com.example.service.SkillServiceImpl;
 
 public class MyApp {
 
@@ -19,6 +22,10 @@ public class MyApp {
 		 		= new EmployeeServiceImpl();
 		
 		
+		// Create SkillService impl obj
+		SkillService skillService = new SkillServiceImpl();
+		
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("1. Add employee");
 		System.out.println("2. Update employee");
@@ -26,6 +33,8 @@ public class MyApp {
 		System.out.println("4. Search employee");
 		System.out.println("5. Delete employee");
 		System.out.println("6. Update employee address");
+		System.out.println("7. Add new skill");
+		System.out.println("8. Update employee skill");
 		
 		int opt = sc.nextInt();
 		
@@ -114,8 +123,45 @@ public class MyApp {
 		    System.out.println(updatedEmp);
 			
 			break;
+		case 7:
+			System.out.println("Enter skill name: ");
+			String sName= sc.next();
+			
+			// Create skill obj
+			Skill skill = new Skill(sName);
+			
+			// send skill obj to db
+			Skill s= skillService.addSkill(skill);
+			
+			// print response
+			System.out.println(s);
+			break;
+		case 8:
+			// update employee skills - empId, skill list
+			System.out.println("Enter employee id:");
+			int eId = sc.nextInt();
+			
+			System.out.println("Enter number of skills to be added");
+			int noOfSkills= sc.nextInt();
+			
+			// Get skills info from console
+			List<String> skillLst = new ArrayList<>();
+			
+			for(int i=0; i<noOfSkills;i++) { ;
+				System.out.println("Enter skill name: ");
+				String newSkill =sc.next();
+				skillLst.add(newSkill);
+			}
+			
+			// call service method to update emp with skills
+			Employee e= empService.updateSkill(eId, skillLst);
+			
+			// print result
+			System.out.println(e);
+			
+			break;
 		default:
-			System.out.println("Enter any number between 1 to 5");
+			System.out.println("Enter any number between 1 to 8");
 			
 		}
 	}

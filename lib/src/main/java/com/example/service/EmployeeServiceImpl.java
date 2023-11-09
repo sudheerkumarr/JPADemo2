@@ -34,4 +34,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return empRepo.updateAddress(empId, addList);
 	}
 
+	@Override
+	public Employee updateSkill(int empId, List<String> skillList) {
+		return empRepo.updateSkill(empId, skillList);
+	}
+
 }

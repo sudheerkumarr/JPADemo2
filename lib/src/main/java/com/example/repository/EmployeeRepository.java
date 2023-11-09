@@ -10,4 +10,5 @@ public interface EmployeeRepository {
 	List<Employee> getAllEmployees();
 	Employee deleteEmployee(int id);
 	Employee updateAddress(int empId, List<Address> addList);
+	Employee updateSkill(int empId, List<String> skillList);
 }
